@@ -3,9 +3,10 @@ const {handleGenerateNewUrl, handelRedirectToUrl, handelDeleteShorturl, handelUp
 const router = express.Router();
 
 
-router.route('/')
+router
+  .route("/")
   .get(handelGetAllLinks)
-  .post(handleGenerateNewUrl);
+  .post(handleGenerateNewUrl)
 
 
 router.route('/:id')
