@@ -48,7 +48,10 @@ async function handelAnalytics(req, res) {
   const shortId = req.params.id;
   const url = await URL.findOne({shortId});
   if (!url) return res.status(404).json({ message: 'URL not found' })
-  return res.json({visitHistory: url.visitHistory.length});
+  return res.json({
+    totalCLicks: url.visitHistory.length,
+    visitHistory: url.visitHistory
+  });
 }
 
 module.exports ={
